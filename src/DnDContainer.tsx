@@ -18,7 +18,7 @@ export function DnDContainer({ children, onDragEnd }: Props) {
     useSensor(MouseSensor), // タッチにもある程度対応
     useSensor(TouchSensor, {
       activationConstraint: {
-        delay: 200,
+        delay: 100,
         tolerance: 5,
       },
     }),
