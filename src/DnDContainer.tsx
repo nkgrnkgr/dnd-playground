@@ -28,6 +28,9 @@ export function DnDContainer({ children, onDragEnd }: Props) {
       sensors={sensors}
       modifiers={[restrictToWindowEdges]}
       onDragEnd={onDragEnd}
+      onDragStart={(event) => {
+        console.log(event.activatorEvent.type);
+      }}
     >
       {children}
     </DndContext>
