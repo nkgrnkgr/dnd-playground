@@ -1,7 +1,7 @@
 import {
   DndContext,
   type DragEndEvent,
-  PointerSensor,
+  MouseSensor,
   TouchSensor,
   useSensor,
   useSensors,
@@ -15,7 +15,7 @@ type Props = {
 
 export function DnDContainer({ children, onDragEnd }: Props) {
   const sensors = useSensors(
-    useSensor(PointerSensor),
+    useSensor(MouseSensor), // タッチにもある程度対応
     useSensor(TouchSensor, {
       activationConstraint: {
         delay: 200,
