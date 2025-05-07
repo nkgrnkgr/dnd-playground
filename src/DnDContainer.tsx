@@ -1,4 +1,11 @@
-import { DndContext, type DragEndEvent } from "@dnd-kit/core";
+import {
+  DndContext,
+  type DragEndEvent,
+  PointerSensor,
+  TouchSensor,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
 import { restrictToWindowEdges } from "@dnd-kit/modifiers";
 
 type Props = {
@@ -7,8 +14,21 @@ type Props = {
 };
 
 export function DnDContainer({ children, onDragEnd }: Props) {
+  const sensors = useSensors(
+    useSensor(PointerSensor),
+    useSensor(TouchSensor, {
+      activationConstraint: {
+        delay: 200,
+        tolerance: 5,
+      },
+    }),
+  );
   return (
-    <DndContext modifiers={[restrictToWindowEdges]} onDragEnd={onDragEnd}>
+    <DndContext
+      sensors={sensors}
+      modifiers={[restrictToWindowEdges]}
+      onDragEnd={onDragEnd}
+    >
       {children}
     </DndContext>
   );
