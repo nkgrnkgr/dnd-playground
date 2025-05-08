@@ -1,7 +1,7 @@
 import { useState } from "react";
+import { Background } from "./Background";
 import { Box } from "./Box";
 import { DnDContainer } from "./DnDContainer";
-import { Background } from "./Background";
 
 export const App = () => {
   const [coordinate, setCoordinate] = useState<{ x: number; y: number }>({
