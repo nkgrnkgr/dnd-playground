@@ -13,7 +13,11 @@ export const Box = ({ x, y }: Props) => {
       y={y}
       handle={<div className={styles.handle}>handle</div>}
     >
-      <div className={styles.box}>draggable</div>
+      <div className={styles.box}>
+        <button type="button">
+          Click
+        </button>
+      </div>
     </DraggableItem>
   );
 };
